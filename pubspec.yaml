@@ -39,6 +39,7 @@ dependencies:
   flutter_map_heatmap: ^0.0.7
   flutter_map: ^6.2.1
   data_table_2: ^2.5.15
+  image_picker: ^1.1.2
 
 dev_dependencies:
   flutter_test:
