@@ -113,7 +113,7 @@ class _TrashMapState extends State<TrashMap>
                 },
                 child: const Icon(
                   Icons.delete,
-                  size: 25,
+                  size: 30,
                 ),
               ),
             ))
