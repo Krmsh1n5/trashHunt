@@ -1,7 +1,6 @@
 import 'dart:math';
-
-import 'package:junction_project/map.dart';
 import 'package:flutter/material.dart';
+import 'package:junction_project/map.dart';
 import 'package:junction_project/profile.dart';
 import 'package:junction_project/view.dart';
 
@@ -34,10 +33,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
-
   Random random = Random();
 
-  // Removed 'const' here because Notifications() can't be constant
   late List<Widget> _widgetOptions;
 
   @override
@@ -70,6 +67,19 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Sick Tree'),
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.deepPurple,
+        elevation: 2,
+        centerTitle: true,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.notifications),
+            onPressed: () {
+              // Add notification functionality here
+            },
+            color: Colors.deepPurple,
+          )
+        ],
       ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
@@ -80,15 +90,23 @@ class _HomePageState extends State<HomePage> {
             icon: Icon(Icons.map),
             label: 'Map',
           ),
-          BottomNavigationBarItem(icon: Icon(Icons.add), label: 'Add'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.add),
+            label: 'Add',
+          ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
             label: 'Profile',
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.blue,
+        selectedItemColor: Colors.deepPurple,
+        unselectedItemColor: Colors.grey,
+        backgroundColor: Colors.white,
+        elevation: 8,
         onTap: _onItemTapped,
+        type: BottomNavigationBarType.fixed, // Ensures the bar stays compact
+        showUnselectedLabels: false, // Keeps it clean by only showing selected labels
       ),
     );
   }
