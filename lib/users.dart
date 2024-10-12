@@ -59,7 +59,7 @@ class RankingContainer extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 18.0,
                   fontWeight: FontWeight.bold,
-                  color: rank == 1 ? Colors.orange : Colors.black,
+                  color: rank == 1 ? Colors.orange : rank == 2 ? Colors.grey : rank == 3 ? Colors.brown : Colors.black,
                 ),
               ),
               const SizedBox(width: 20),
