@@ -20,11 +20,7 @@ class _StandingsTableState extends State<StandingsTable> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Sick Tree'),
-      ),
-      body: Center(
+    return Center(
         child: Expanded(
                     child: DataTable2(
                   isVerticalScrollBarVisible: true,
@@ -59,23 +55,6 @@ class _StandingsTableState extends State<StandingsTable> {
                       ),
                   ],
                 )),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.map),
-            label: 'Map',
-          ),
-          BottomNavigationBarItem(icon: Icon(Icons.add), label: 'Add'),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.blue,
-        onTap: _onItemTapped,
-      ),
-    );
+      );
   }
 }

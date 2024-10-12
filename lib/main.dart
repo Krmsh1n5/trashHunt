@@ -1,5 +1,6 @@
 import 'package:junction_project/map.dart';
 import 'package:flutter/material.dart';
+import 'package:junction_project/profile.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,6 +35,8 @@ class _HomePageState extends State<HomePage> {
   // Removed 'const' here because Notifications() can't be constant
   static final List<Widget> _widgetOptions = <Widget>[
     const CarbonMap(),
+    const Text("Hello World!"),
+    const StandingsTable()
   ];
 
   void _onItemTapped(int index) {
