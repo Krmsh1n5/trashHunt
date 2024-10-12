@@ -18,190 +18,208 @@ class TrashReportPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Trash Report'),
+        title: const Text('Trash Report', style: TextStyle(fontSize: 18)), // Smaller font size
         elevation: 2,
-
-      ),        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: ListView(
-            children: [
-              // Image with overlay
-              Stack(
-                children: [
-                  Image.asset(
+      ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8.0), // Reduced horizontal padding
+        child: ListView(
+          children: [
+            // Image with overlay
+            Stack(
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(12.0), // Slightly reduced radius
+                  child: Image.asset(
                     path,
                     width: double.infinity,
-                    height: 200,
+                    height: 180, // Reduced height
                     fit: BoxFit.cover,
                   ),
-                  Positioned(
-                    bottom: 10,
-                    left: 10,
-                    child: Container(
-                      color: Colors.black54,
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 4, horizontal: 8),
-                      child: Text(
-                        'ID: $reportId | Date: $reportDate',
-                        style:
-                            const TextStyle(color: Colors.white, fontSize: 16),
-                      ),
+                ),
+                Positioned(
+                  bottom: 8,
+                  left: 8,
+                  child: Container(
+                    color: Colors.black54,
+                    padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 4), // Reduced padding
+                    child: Text(
+                      'ID: $reportId | Date: $reportDate',
+                      style: const TextStyle(color: Colors.white, fontSize: 14), // Smaller font size
                     ),
                   ),
-                ],
-              ),
-              const SizedBox(height: 16),
-
-              // Update this report text
-              const Text(
-                'Update this report',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 16),
-
-              // CLEANED Button
-              ElevatedButton(
-                onPressed: () {
-                  // Handle CLEANED action
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.green,
-                  padding: const EdgeInsets.symmetric(vertical: 12),
                 ),
-                child: const Text(
-                  'CLEANED',
-                  style: TextStyle(fontSize: 18),
-                ),
-              ),
-              const SizedBox(height: 16),
+              ],
+            ),
+            const SizedBox(height: 12), // Reduced spacing
 
-              // STILL THERE Button
-              ElevatedButton(
-                onPressed: () {
-                  // Handle STILL THERE action
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.red,
-                  padding: const EdgeInsets.symmetric(vertical: 12),
-                ),
-                child: const Text(
-                  'STILL THERE',
-                  style: TextStyle(fontSize: 18),
-                ),
-              ),
-              const SizedBox(height: 32),
+            // Update this report text
+            const Text(
+              'Update this report',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black), // Smaller font size
+            ),
+            const SizedBox(height: 12), // Reduced spacing
 
-              // Information section title
-              const Text(
-                'Information',
-                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+            // CLEANED Button
+            ElevatedButton(
+              onPressed: () {
+                // Handle CLEANED action
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xFF8ACE00), // Using your color
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12.0), // Reduced radius
+                ),
+                padding: const EdgeInsets.symmetric(vertical: 8), // Reduced vertical padding
               ),
-              const SizedBox(height: 16),
+              child: const Text(
+                'CLEANED',
+                style: TextStyle(fontSize: 16, color: Colors.black), // Smaller font size
+              ),
+            ),
+            const SizedBox(height: 12), // Reduced spacing
 
-              // Information sections
-              Column(
-                children: sections.map((section) {
-                  return Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey),
-                      borderRadius: BorderRadius.circular(8.0),
-                    ),
-                    margin: const EdgeInsets.symmetric(vertical: 8.0),
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      children: [
-                        Icon(
-                          section.icon,
-                          size: 48, // Bigger icon size
-                        ),
-                        const SizedBox(
-                            width: 16), // Space between icon and text
-                        Text(
+            // STILL THERE Button
+            ElevatedButton(
+              onPressed: () {
+                // Handle STILL THERE action
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.red,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12.0), // Reduced radius
+                ),
+                padding: const EdgeInsets.symmetric(vertical: 8), // Reduced vertical padding
+              ),
+              child: const Text(
+                'STILL THERE',
+                style: TextStyle(fontSize: 16, color: Colors.black), // Smaller font size
+              ),
+            ),
+            const SizedBox(height: 24), // Reduced spacing
+
+            // Information section title
+            const Text(
+              'Information',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black), // Smaller font size
+            ),
+            const SizedBox(height: 12), // Reduced spacing
+
+            // Information sections
+            Column(
+              children: sections.map((section) {
+                return Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.grey),
+                    borderRadius: BorderRadius.circular(10.0), // Reduced radius
+                  ),
+                  margin: const EdgeInsets.symmetric(vertical: 4.0), // Reduced vertical margin
+                  padding: const EdgeInsets.all(8.0), // Slightly reduced padding
+                  child: Row(
+                    children: [
+                      Icon(
+                        section.icon,
+                        size: 40, // Smaller icon size
+                      ),
+                      const SizedBox(width: 8), // Reduced space between icon and text
+                      Expanded( // To take up available space
+                        child: Text(
                           section.text,
-                          style: const TextStyle(fontSize: 20),
+                          style: const TextStyle(fontSize: 16, color: Colors.black), // Smaller font size
                         ),
-                      ],
-                    ),
-                  );
-                }).toList(),
-              ),
-              const SizedBox(height: 20),
-              const Text(
-                'Cleaning Events',
-                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 16),
-              const Text(
-                'No cleaning events yet',
-                style: TextStyle(fontSize: 18),
-              ),
-              const SizedBox(height: 16),
-              ElevatedButton(
-                onPressed: () {
-                  // Handle STILL THERE action
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.green,
-                  padding: const EdgeInsets.symmetric(vertical: 10),
+                      ),
+                    ],
+                  ),
+                );
+              }).toList(),
+            ),
+            const SizedBox(height: 16),
+            const Text(
+              'Cleaning Events',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black), // Smaller font size
+            ),
+            const SizedBox(height: 12), // Reduced spacing
+            const Text(
+              'No cleaning events yet',
+              style: TextStyle(fontSize: 16, color: Colors.black), // Smaller font size
+            ),
+            const SizedBox(height: 12), // Reduced spacing
+            ElevatedButton(
+              onPressed: () {
+                // Handle ADD EVENT action
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xFF8ACE00), // Using your color
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12.0), // Reduced radius
                 ),
-                child: const Text(
-                  'ADD EVENT',
-                  style: TextStyle(fontSize: 16),
+                padding: const EdgeInsets.symmetric(vertical: 8), // Reduced vertical padding
+              ),
+              child: const Text(
+                'ADD EVENT',
+                style: TextStyle(fontSize: 16, color: Colors.black), // Smaller font size
+              ),
+            ),
+            const SizedBox(height: 24), // Reduced spacing
+            const Text(
+              "Share this report",
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black), // Smaller font size
+            ),
+            const SizedBox(height: 12), // Reduced spacing
+            const Text(
+              "Send to local authorities or environmental NGOs",
+              style: TextStyle(fontSize: 16, color: Colors.black), // Smaller font size
+            ),
+            const SizedBox(height: 12), // Reduced spacing
+            ElevatedButton(
+              onPressed: () {
+                // Handle SEND NOTIFICATION action
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xFF8ACE00), // Using your color
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12.0), // Reduced radius
                 ),
+                padding: const EdgeInsets.symmetric(vertical: 8), // Reduced vertical padding
               ),
-              const SizedBox(height: 32),
-              const Text(
-                "Share this report",
-                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+              child: const Text(
+                'SEND NOTIFICATION',
+                style: TextStyle(fontSize: 16, color: Colors.black), // Smaller font size
               ),
-              const SizedBox(height: 16),
-              const Text(
-                "Send to local authorities or environmental NGOs",
-                style: TextStyle(fontSize: 18),
-              ),
-              const SizedBox(height: 16),
-              ElevatedButton(
-                onPressed: () {
-                  // Handle STILL THERE action
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.green,
-                  padding: const EdgeInsets.symmetric(vertical: 10),
+            ),
+            const SizedBox(height: 24), // Reduced spacing
+            const Text(
+              "Report Spam",
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black), // Smaller font size
+            ),
+            const SizedBox(height: 12), // Reduced spacing
+            const Text(
+              "Report this report as spam",
+              style: TextStyle(fontSize: 16, color: Colors.black), // Smaller font size
+            ),
+            const SizedBox(height: 12), // Reduced spacing
+            ElevatedButton(
+              onPressed: () {
+                // Handle REPORT SPAM action
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.red,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12.0), // Reduced radius
                 ),
-                child: const Text(
-                  'SEND NOTIFICATION',
-                  style: TextStyle(fontSize: 16),
-                ),
+                padding: const EdgeInsets.symmetric(vertical: 8), // Reduced vertical padding
               ),
-              const SizedBox(height: 32),
-              const Text(
-                "Report Spam",
-                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+              child: const Text(
+                'REPORT SPAM',
+                style: TextStyle(fontSize: 16, color: Colors.black), // Smaller font size
               ),
-              const SizedBox(height: 16),
-              const Text(
-                "Report this report as spam",
-                style: TextStyle(fontSize: 18),
-              ),
-              const SizedBox(height: 16),
-              ElevatedButton(
-                onPressed: () {
-                  // Handle STILL THERE action
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.red,
-                  padding: const EdgeInsets.symmetric(vertical: 10),
-                ),
-                child: const Text(
-                  'REPORT SPAM',
-                  style: TextStyle(fontSize: 16),
-                ),
-              ),
-              const SizedBox(height: 32),
-            ],
-          ),
-        ));
+            ),
+            const SizedBox(height: 24), // Reduced spacing
+          ],
+        ),
+      ),
+    );
   }
 }
 
