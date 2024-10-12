@@ -17,6 +17,39 @@ class MyApp extends StatelessWidget {
       title: 'Sick Tree',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        fontFamily: 'Now', // Set the default font
+        textTheme: const TextTheme(
+          displayLarge: TextStyle(
+              fontFamily: 'Now', fontSize: 57, fontWeight: FontWeight.bold),
+          displayMedium: TextStyle(
+              fontFamily: 'Now', fontSize: 45, fontWeight: FontWeight.bold),
+          displaySmall: TextStyle(
+              fontFamily: 'Now', fontSize: 36, fontWeight: FontWeight.bold),
+          headlineLarge: TextStyle(
+              fontFamily: 'Now', fontSize: 32, fontWeight: FontWeight.bold),
+          headlineMedium: TextStyle(
+              fontFamily: 'Now', fontSize: 28, fontWeight: FontWeight.w600),
+          headlineSmall: TextStyle(
+              fontFamily: 'Now', fontSize: 24, fontWeight: FontWeight.w600),
+          titleLarge: TextStyle(
+              fontFamily: 'Now', fontSize: 22, fontWeight: FontWeight.w500),
+          titleMedium: TextStyle(
+              fontFamily: 'Now', fontSize: 16, fontWeight: FontWeight.w500),
+          titleSmall: TextStyle(
+              fontFamily: 'Now', fontSize: 14, fontWeight: FontWeight.w500),
+          bodyLarge: TextStyle(
+              fontFamily: 'Now', fontSize: 16, fontWeight: FontWeight.normal),
+          bodyMedium: TextStyle(
+              fontFamily: 'Now', fontSize: 14, fontWeight: FontWeight.normal),
+          bodySmall: TextStyle(
+              fontFamily: 'Now', fontSize: 12, fontWeight: FontWeight.normal),
+          labelLarge: TextStyle(
+              fontFamily: 'Now', fontSize: 14, fontWeight: FontWeight.w600),
+          labelMedium: TextStyle(
+              fontFamily: 'Now', fontSize: 12, fontWeight: FontWeight.w500),
+          labelSmall: TextStyle(
+              fontFamily: 'Now', fontSize: 11, fontWeight: FontWeight.w400),
+        ),
         useMaterial3: true,
       ),
       home: const HomePage(),
@@ -71,15 +104,7 @@ class _HomePageState extends State<HomePage> {
         foregroundColor: Colors.deepPurple,
         elevation: 2,
         centerTitle: true,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.notifications),
-            onPressed: () {
-              // Add notification functionality here
-            },
-            color: Colors.deepPurple,
-          )
-        ],
+
       ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
@@ -106,7 +131,8 @@ class _HomePageState extends State<HomePage> {
         elevation: 8,
         onTap: _onItemTapped,
         type: BottomNavigationBarType.fixed, // Ensures the bar stays compact
-        showUnselectedLabels: false, // Keeps it clean by only showing selected labels
+        showUnselectedLabels:
+            false, // Keeps it clean by only showing selected labels
       ),
     );
   }
