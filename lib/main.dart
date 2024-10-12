@@ -1,5 +1,4 @@
 import 'package:junction_project/map.dart';
-import 'package:junction_project/profile.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -34,8 +33,7 @@ class _HomePageState extends State<HomePage> {
 
   // Removed 'const' here because Notifications() can't be constant
   static final List<Widget> _widgetOptions = <Widget>[
-    const CarbonMap(), // Can stay const if all data is constant inside it
-    const Profile(), // Can stay const
+    const CarbonMap(),
   ];
 
   void _onItemTapped(int index) {
