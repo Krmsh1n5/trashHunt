@@ -1,4 +1,3 @@
-import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:junction_project/users.dart';
 
@@ -18,43 +17,20 @@ class _StandingsTableState extends State<StandingsTable> {
     });
   }
 
+  final List<Widget> rankingContainers = users.map((user) {
+    return RankingContainer(
+      rank: user.rank,
+      name: user.name,
+      score: user.score,
+      profileImageUrl: user.imageUrl,
+    );
+  }).toList();
+
   @override
   Widget build(BuildContext context) {
     return Center(
-        child: Expanded(
-                    child: DataTable2(
-                  isVerticalScrollBarVisible: true,
-                  fixedTopRows: 1,
-                  columns: const <DataColumn>[
-                                        DataColumn2(
-                        label: Text('Rank',
-                            )),
-                    DataColumn2(
-                        label: Text(
-                      'User Name',
-                    )),
-                    DataColumn2(
-                        label: Text(
-                      'Score',
-                    )),
-                  ],
-                  rows: [
-                    for (var user in users)
-                      DataRow(
-                        cells: [
-                          DataCell(Text(user.rank.toString(),
-                             )),
-                          DataCell(
-                            Text(
-                              user.name
-                            ),
-                          ),
-                          DataCell(Text(user.score.toString(),
-                             )),
-                        ],
-                      ),
-                  ],
-                )),
-      );
+        child: ListView(
+      children: rankingContainers,
+    ));
   }
 }

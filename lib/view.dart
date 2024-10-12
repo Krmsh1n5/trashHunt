@@ -17,8 +17,11 @@ class TrashReportPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: const Text('Trash Report')),
-        body: Padding(
+      appBar: AppBar(
+        title: const Text('Trash Report'),
+        elevation: 2,
+
+      ),        body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: ListView(
             children: [
