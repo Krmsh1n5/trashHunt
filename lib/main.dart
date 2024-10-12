@@ -16,8 +16,31 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Sick Tree',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        fontFamily: 'Now', // Set the default font
+        colorScheme: const ColorScheme(
+          brightness: Brightness.light, // Set brightness
+          primary: const Color(0xFF8ACE00), // Primary color
+          onPrimary: Colors.black, // Text color on primary
+          primaryContainer: const Color(0xFF6FA300), // Primary container color
+          onPrimaryContainer: Colors.white, // Text color on primary container
+          secondary: const Color(0xFFBFFF50), // Secondary color
+          onSecondary: Colors.black, // Text color on secondary
+          secondaryContainer: const Color(0xFFD3FF88), // Secondary container color
+          onSecondaryContainer: Colors.black, // Text color on secondary container
+          error: Colors.red, // Error color
+          onError: Colors.white, // Text color on error
+          surface: Colors.white, // Surface color
+          onSurface: Colors.black, // Text color on surface
+          background: const Color(0xFFF5F5F5), // Background color
+          onBackground: Colors.black, // Text color on background
+          // Optional fields:
+          // tertiary: const Color(0xFFsomeColor),
+          // onTertiary: Colors.black,
+          // errorContainer: Colors.redAccent,
+          // onErrorContainer: Colors.white,
+          // outline: Colors.grey,
+          // shadow: Colors.black.withOpacity(0.5),
+          // etc...
+        ),        fontFamily: 'Now', // Set the default font
         textTheme: const TextTheme(
           displayLarge: TextStyle(
               fontFamily: 'Now', fontSize: 57, fontWeight: FontWeight.bold),
@@ -100,8 +123,6 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Sick Tree'),
-        backgroundColor: Colors.white,
-        foregroundColor: Colors.deepPurple,
         elevation: 2,
         centerTitle: true,
 
@@ -125,9 +146,6 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.deepPurple,
-        unselectedItemColor: Colors.grey,
-        backgroundColor: Colors.white,
         elevation: 8,
         onTap: _onItemTapped,
         type: BottomNavigationBarType.fixed, // Ensures the bar stays compact

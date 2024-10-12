@@ -19,8 +19,6 @@ class TrashReportPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Trash Report'),
-        backgroundColor: Colors.white,
-        foregroundColor: Colors.deepPurple,
         elevation: 2,
 
       ),        body: Padding(
