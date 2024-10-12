@@ -1,6 +1,9 @@
+import 'dart:math';
+
 import 'package:junction_project/map.dart';
 import 'package:flutter/material.dart';
 import 'package:junction_project/profile.dart';
+import 'package:junction_project/view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'CH4NGE',
+      title: 'Sick Tree',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
@@ -32,12 +35,29 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
 
+  Random random = Random();
+
   // Removed 'const' here because Notifications() can't be constant
-  static final List<Widget> _widgetOptions = <Widget>[
-    const CarbonMap(),
-    const Text("Hello World!"),
-    const StandingsTable()
-  ];
+  late List<Widget> _widgetOptions;
+
+  @override
+  void initState() {
+    super.initState();
+    _widgetOptions = <Widget>[
+      const TrashMap(),
+      TrashReportPage(
+        path: 'assets/images/1.jpg', // Placeholder image URL
+        reportId: random.nextInt(10000).toString(),
+        reportDate: '2024-10-12',
+        sections: const [
+          TrashInfoSection(icon: Icons.inventory_2, text: 'Large'),
+          TrashInfoSection(icon: Icons.local_drink, text: 'Plastic'),
+          TrashInfoSection(icon: Icons.settings, text: 'Metal'),
+        ],
+      ),
+      const StandingsTable()
+    ];
+  }
 
   void _onItemTapped(int index) {
     setState(() {

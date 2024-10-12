@@ -1,19 +1,21 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_map/flutter_map.dart';
+import 'package:junction_project/view.dart';
 import 'package:latlong2/latlong.dart';
 
-class CarbonMap extends StatefulWidget {
-  const CarbonMap({super.key});
+class TrashMap extends StatefulWidget {
+  const TrashMap({super.key});
 
   @override
-  State<CarbonMap> createState() => _CarbonMapState();
+  State<TrashMap> createState() => _TrashMapState();
 }
 
-class _CarbonMapState extends State<CarbonMap>
+class _TrashMapState extends State<TrashMap>
     with SingleTickerProviderStateMixin {
   final StreamController<void> _rebuildStream = StreamController.broadcast();
   List<LatLng> points = [];
@@ -22,57 +24,6 @@ class _CarbonMapState extends State<CarbonMap>
   bool isModalOpen = false;
   String modalName = "";
   late AnimationController _animationController;
-
-  // Updated person details to include activity type (good or bad)
-  Map<String, Map<String, dynamic>> personDetails = {
-    "Me": {
-      "avatarUrl":
-          'https://media.licdn.com/dms/image/v2/D4E03AQF0C6P-DVcaaw/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1712402998257?e=1733356800&v=beta&t=oqelzWqukJaapwsESvDGEfVvA1gips9G5JSlissBHoA',
-      "lastSeen": "Online",
-      "carbonIndex": 3,
-      "lastActivities": [
-        {"label": "Preferred walking over driving", "type": "good"},
-        {"label": "Used public transport", "type": "good"},
-        {"label": "Ordered food delivery", "type": "bad"}
-      ]
-    },
-    "Rena": {
-      "avatarUrl":
-          'https://media.licdn.com/dms/image/v2/D4E03AQFBIu9J-kB1vg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1719592835334?e=1733356800&v=beta&t=t7B52BNyOvC-KQ5XQaw8QdvO2jWZCiVnDa5tn9X3tLQ',
-      "lastSeen": "Last seen 2 hours ago",
-      "carbonIndex": 4,
-      "lastActivities": [
-        {"label": "Drove to work", "type": "bad"},
-        {"label": "Recycled plastic", "type": "good"},
-        {"label": "Turned off lights", "type": "good"}
-      ]
-    },
-    "Pavel": {
-      "avatarUrl":
-          'https://media.licdn.com/dms/image/v2/C4E03AQGrdlO8sT78ug/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1663355766652?e=1733356800&v=beta&t=q3AUdrQxnDJk2HoSFqEGKt17xUJcoXb8tRp2hLiD1eg',
-      "lastSeen": "Last seen 1 hour ago",
-      "carbonIndex": 5,
-      "lastActivities": [
-        {"label": "Took a long flight", "type": "bad"},
-        {"label": "Planted a tree", "type": "good"},
-        {"label": "Rode a bike", "type": "good"}
-      ]
-    },
-    "Suad": {
-      "avatarUrl":
-          "https://media.licdn.com/dms/image/v2/D4E03AQHhssvw0Qavjw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1718277083288?e=1733356800&v=beta&t=67DF97zBi57zc0Zk9MTj5I-pj2vjRSdJupNwCJK46f8",
-      "lastSeen": "Last seen 30 minutes ago",
-      "carbonIndex": 2,
-      "lastActivities": [
-        {"label": "Walked to grocery store", "type": "good"},
-        {"label": "Drove to friend's house", "type": "bad"},
-        {"label": "Used reusable bags", "type": "good"}
-      ]
-    },
-    "Sensor": {
-      "carbonIndex": 3,
-    }
-  };
 
   @override
   void initState() {
@@ -124,17 +75,45 @@ class _CarbonMapState extends State<CarbonMap>
       _rebuildStream.add(null);
     });
 
+    final random = Random();
+    final imageId = random.nextInt(4) + 1;
+
     var pointMarkers = points
         .map((e) => Marker(
-              width: 60,
-              height: 60,
+              width: 40,
+              height: 40,
               point: e,
               child: GestureDetector(
                 onTap: () {
-                  _toggleModal("aaa");
+                  Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) =>
+                          TrashReportPage(
+                        path: 'assets/images/$imageId.jpg',
+                        reportId: random.nextInt(10000).toString(),
+                        reportDate: '2024-10-12',
+                        sections: const [
+                          TrashInfoSection(
+                              icon: Icons.inventory_2, text: 'Large'),
+                          TrashInfoSection(
+                              icon: Icons.local_drink, text: 'Plastic'),
+                          TrashInfoSection(icon: Icons.settings, text: 'Metal'),
+                        ],
+                      ),
+                      transitionsBuilder:
+                          (context, animation, secondaryAnimation, child) {
+                        return FadeTransition(
+                          opacity: animation,
+                          child: child,
+                        );
+                      },
+                    ),
+                  );
                 },
                 child: const Icon(
                   Icons.delete,
+                  size: 25,
                 ),
               ),
             ))

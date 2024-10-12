@@ -1,34 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
-
-class TrashReportPageView extends StatelessWidget {
-  const TrashReportPageView({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final random = Random();
-
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Trash Report'),
-      ),
-      body: PageView(
-        children: [
-          TrashReportPage(
-            path: 'assets/images/1.jpg', // Placeholder image URL
-            reportId: random.nextInt(10000).toString(),
-            reportDate: '2024-10-12',
-            sections: const [
-              TrashInfoSection(icon: Icons.delete, text: 'Size: Large'),
-              TrashInfoSection(icon: Icons.recycling, text: 'Type: Plastic'),
-              TrashInfoSection(icon: Icons.public, text: 'Type: Metal'),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-}
 
 class TrashReportPage extends StatelessWidget {
   final String path;
@@ -46,11 +16,11 @@ class TrashReportPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+    return Scaffold(
+        appBar: AppBar(title: const Text('Trash Report')),
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: ListView(
             children: [
               // Image with overlay
               Stack(
@@ -129,24 +99,103 @@ class TrashReportPage extends StatelessWidget {
               // Information sections
               Column(
                 children: sections.map((section) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  return Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.grey),
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    margin: const EdgeInsets.symmetric(vertical: 8.0),
+                    padding: const EdgeInsets.all(8.0),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
+                        Icon(
+                          section.icon,
+                          size: 48, // Bigger icon size
+                        ),
+                        const SizedBox(
+                            width: 16), // Space between icon and text
                         Text(
                           section.text,
                           style: const TextStyle(fontSize: 20),
-                        ),
-                        Icon(
-                          section.icon,
-                          size: 32,
                         ),
                       ],
                     ),
                   );
                 }).toList(),
               ),
+              const SizedBox(height: 20),
+              const Text(
+                'Cleaning Events',
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 16),
+              const Text(
+                'No cleaning events yet',
+                style: TextStyle(fontSize: 18),
+              ),
+              const SizedBox(height: 16),
+              ElevatedButton(
+                onPressed: () {
+                  // Handle STILL THERE action
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green,
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                ),
+                child: const Text(
+                  'ADD EVENT',
+                  style: TextStyle(fontSize: 16),
+                ),
+              ),
+              const SizedBox(height: 32),
+              const Text(
+                "Share this report",
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 16),
+              const Text(
+                "Send to local authorities or environmental NGOs",
+                style: TextStyle(fontSize: 18),
+              ),
+              const SizedBox(height: 16),
+              ElevatedButton(
+                onPressed: () {
+                  // Handle STILL THERE action
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green,
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                ),
+                child: const Text(
+                  'SEND NOTIFICATION',
+                  style: TextStyle(fontSize: 16),
+                ),
+              ),
+              const SizedBox(height: 32),
+              const Text(
+                "Report Spam",
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 16),
+              const Text(
+                "Report this report as spam",
+                style: TextStyle(fontSize: 18),
+              ),
+              const SizedBox(height: 16),
+              ElevatedButton(
+                onPressed: () {
+                  // Handle STILL THERE action
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.red,
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                ),
+                child: const Text(
+                  'REPORT SPAM',
+                  style: TextStyle(fontSize: 16),
+                ),
+              ),
+              const SizedBox(height: 32),
             ],
           ),
         ));
