@@ -1,6 +1,6 @@
 import 'package:junction_project/map.dart';
 import 'package:flutter/material.dart';
-import 'package:junction_project/view.dart';
+import 'package:junction_project/profile.dart';
 
 void main() {
   runApp(const MyApp());
@@ -35,20 +35,8 @@ class _HomePageState extends State<HomePage> {
   // Removed 'const' here because Notifications() can't be constant
   static final List<Widget> _widgetOptions = <Widget>[
     const CarbonMap(),
-    PageView(
-      children: const [
-        TrashReportPage(
-          path: 'assets/images/1.jpg', // Placeholder image URL
-          reportId: '12345',
-          reportDate: '2024-10-12',
-          sections: [
-            TrashInfoSection(icon: Icons.delete, text: 'Size: Large'),
-            TrashInfoSection(icon: Icons.recycling, text: 'Type: Plastic'),
-            TrashInfoSection(icon: Icons.public, text: 'Type: Metal'),
-          ],
-        ),
-      ],
-    ),
+    const Text("Hello World!"),
+    const StandingsTable()
   ];
 
   void _onItemTapped(int index) {
