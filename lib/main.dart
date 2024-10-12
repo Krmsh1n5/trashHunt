@@ -101,16 +101,7 @@ class _HomePageState extends State<HomePage> {
     super.initState();
     _widgetOptions = <Widget>[
       const TrashMap(),
-      TrashReportPage(
-        path: 'assets/images/1.jpg', // Placeholder image URL
-        reportId: random.nextInt(10000).toString(),
-        reportDate: '2024-10-12',
-        sections: const [
-          TrashInfoSection(icon: Icons.inventory_2, text: 'Large'),
-          TrashInfoSection(icon: Icons.local_drink, text: 'Plastic'),
-          TrashInfoSection(icon: Icons.settings, text: 'Metal'),
-        ],
-      ),
+      const AddPage(),
       const StandingsTable()
     ];
   }
