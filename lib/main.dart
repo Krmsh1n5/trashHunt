@@ -18,21 +18,20 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: const ColorScheme(
           brightness: Brightness.light, // Set brightness
-          primary: const Color(0xFF8ACE00), // Primary color
+          primary: Color(0xFF8ACE00), // Primary color
           onPrimary: Colors.black, // Text color on primary
-          primaryContainer: const Color(0xFF6FA300), // Primary container color
+          primaryContainer: Color(0xFF6FA300), // Primary container color
           onPrimaryContainer: Colors.white, // Text color on primary container
-          secondary: const Color(0xFFBFFF50), // Secondary color
+          secondary: Color(0xFFBFFF50), // Secondary color
           onSecondary: Colors.black, // Text color on secondary
-          secondaryContainer:
-              const Color(0xFFD3FF88), // Secondary container color
+          secondaryContainer: Color(0xFFD3FF88), // Secondary container color
           onSecondaryContainer:
               Colors.black, // Text color on secondary container
           error: Colors.red, // Error color
           onError: Colors.white, // Text color on error
           surface: Colors.white, // Surface color
           onSurface: Colors.black, // Text color on surface
-          background: const Color(0xFFF5F5F5), // Background color
+          background: Color(0xFFF5F5F5), // Background color
           onBackground: Colors.black, // Text color on background
           // Optional fields:
           // tertiary: const Color(0xFFsomeColor),
@@ -116,7 +115,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Sick Tree'),
+        title: const Text('TrashHunt'),
         elevation: 2,
         centerTitle: true,
       ),

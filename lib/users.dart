@@ -6,15 +6,28 @@ class User {
   final int rank;
   final int score;
 
-  User({required this.imageUrl, required this.name, required this.rank, required this.score});
+  User(
+      {required this.imageUrl,
+      required this.name,
+      required this.rank,
+      required this.score});
 }
 
-User user1 = User(imageUrl: 'assets/images/Elchin.jpeg', name: 'Elchin', rank: 1, score: 100);
-User user2 = User(imageUrl: 'assets/images/Tamerlan.jpeg', name: 'Tamerlan', rank: 2, score: 90);
-User user3 = User(imageUrl: 'assets/images/Husein.jpeg', name: 'Husein', rank: 3, score: 80);
-User user4 = User(imageUrl: 'assets/images/Eldar.jpeg', name: 'Eldar', rank: 4, score: 70);
-User user5 = User(imageUrl: 'assets/images/Elmar.jpeg', name: 'Elmar', rank: 5, score: 60);
-User user6 = User(imageUrl: 'assets/images/Elnur.jpeg', name: 'Elnur', rank: 6, score: 50);
+User user1 = User(
+    imageUrl: 'assets/images/Elchin.jpeg', name: 'Elchin', rank: 1, score: 100);
+User user2 = User(
+    imageUrl: 'assets/images/Tamerlan.jpeg',
+    name: 'Tamerlan',
+    rank: 2,
+    score: 90);
+User user3 = User(
+    imageUrl: 'assets/images/Husein.jpeg', name: 'Husein', rank: 3, score: 80);
+User user4 = User(
+    imageUrl: 'assets/images/Eldar.jpeg', name: 'Eldar', rank: 4, score: 70);
+User user5 = User(
+    imageUrl: 'assets/images/Elmar.jpeg', name: 'Elmar', rank: 5, score: 60);
+User user6 = User(
+    imageUrl: 'assets/images/Elnur.jpeg', name: 'Elnur', rank: 6, score: 50);
 
 List<User> users = [user1, user2, user3, user4, user5, user6];
 
@@ -25,12 +38,12 @@ class RankingContainer extends StatelessWidget {
   final String profileImageUrl;
 
   const RankingContainer({
-    Key? key,
+    super.key,
     required this.rank,
     required this.name,
     required this.score,
     required this.profileImageUrl,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -59,25 +72,29 @@ class RankingContainer extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 18.0,
                   fontWeight: FontWeight.bold,
-                  color: rank == 1 ? Colors.orange : rank == 2 ? Colors.grey : rank == 3 ? Colors.brown : Colors.black,
+                  color: rank == 1
+                      ? Colors.orange
+                      : rank == 2
+                          ? Colors.grey
+                          : rank == 3
+                              ? Colors.brown
+                              : Colors.black,
                 ),
               ),
               const SizedBox(width: 20),
-            
               CircleAvatar(
                 radius: 20,
-                backgroundImage: AssetImage(profileImageUrl),
-                backgroundColor: Colors.grey[300], 
+                backgroundImage: Image.asset(profileImageUrl).image,
+                backgroundColor: Colors.grey[300],
               ),
               const SizedBox(width: 10),
-              
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     name,
                     style: const TextStyle(
-                      fontSize: 16.0, 
+                      fontSize: 16.0,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -85,7 +102,7 @@ class RankingContainer extends StatelessWidget {
                   Text(
                     '$score Points',
                     style: const TextStyle(
-                      fontSize: 14.0, 
+                      fontSize: 14.0,
                       color: Colors.grey,
                     ),
                   ),
@@ -98,7 +115,8 @@ class RankingContainer extends StatelessWidget {
               : rank == 2
                   ? const Icon(Icons.emoji_events, color: Colors.grey, size: 28)
                   : rank == 3
-                      ? const Icon(Icons.emoji_events, color: Colors.brown, size: 28)
+                      ? const Icon(Icons.emoji_events,
+                          color: Colors.brown, size: 28)
                       : const SizedBox.shrink(),
         ],
       ),

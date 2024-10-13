@@ -19,6 +19,13 @@ class _TrashMapState extends State<TrashMap>
     with SingleTickerProviderStateMixin {
   final StreamController<void> _rebuildStream = StreamController.broadcast();
   List<LatLng> points = [];
+  List<LatLng> recyclePoints = [
+    const LatLng(40.378150, 49.822627),
+    const LatLng(40.420934, 49.920265),
+    const LatLng(40.472945, 49.832598),
+    const LatLng(40.420785, 49.809462),
+    const LatLng(40.477687, 49.912034)
+  ];
 
   var index = 0;
   bool isModalOpen = false;
@@ -119,6 +126,24 @@ class _TrashMapState extends State<TrashMap>
             ))
         .toList();
 
+    final recycleMarkers = recyclePoints.map((e) => Marker(
+          width: 40,
+          height: 40,
+          point: e,
+          child: const Icon(
+            Icons.recycling,
+            size: 40,
+            color: Color.fromARGB(255, 31, 246, 38),
+            shadows: [
+              Shadow(
+                offset: Offset(0, 0),
+                blurRadius: 5.0,
+                color: Color.fromARGB(255, 0, 0, 0),
+              ),
+            ],
+          ),
+        ));
+
     final map = FlutterMap(
       options: const MapOptions(
         initialCenter: LatLng(40.409264, 49.867092),
@@ -132,6 +157,7 @@ class _TrashMapState extends State<TrashMap>
         MarkerLayer(
           markers: [
             ...pointMarkers,
+            ...recycleMarkers,
           ],
         )
       ],

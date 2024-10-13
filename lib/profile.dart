@@ -9,14 +9,6 @@ class StandingsTable extends StatefulWidget {
 }
 
 class _StandingsTableState extends State<StandingsTable> {
-  int _selectedIndex = 2;
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
   final List<Widget> rankingContainers = users.map((user) {
     return RankingContainer(
       rank: user.rank,
@@ -42,7 +34,7 @@ class _StandingsTableState extends State<StandingsTable> {
             child: Row(
               children: [
                 CircleAvatar(
-                  backgroundImage: AssetImage(user3.imageUrl),
+                  backgroundImage: Image.asset(user3.imageUrl).image,
                   radius: 30,
                 ),
                 const SizedBox(width: 16),
@@ -72,7 +64,7 @@ class _StandingsTableState extends State<StandingsTable> {
           ),
         ),
         Center(
-            child: Container(
+            child: SizedBox(
           height: size.height * 0.7,
           child: ListView(
             children: rankingContainers,

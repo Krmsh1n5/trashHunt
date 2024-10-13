@@ -105,7 +105,9 @@ class _AddPageState extends State<AddPage> {
               child: ListView(
                 children: [
                   // Image preview
-                  Image.file(_imageFile!,
+                  // Image.file(_imageFile!,
+                  //     width: double.infinity, height: 200, fit: BoxFit.cover),
+                  Image.asset("assets/images/5.jpg",
                       width: double.infinity, height: 200, fit: BoxFit.cover),
                   const SizedBox(height: 16),
                   // Title
