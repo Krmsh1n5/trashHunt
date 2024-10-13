@@ -42,7 +42,7 @@ class _StandingsTableState extends State<StandingsTable> {
             child: Row(
               children: [
                 CircleAvatar(
-                  backgroundImage: NetworkImage(user3.imageUrl),
+                  backgroundImage: AssetImage(user3.imageUrl),
                   radius: 30,
                 ),
                 const SizedBox(width: 16),

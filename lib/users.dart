@@ -9,12 +9,12 @@ class User {
   User({required this.imageUrl, required this.name, required this.rank, required this.score});
 }
 
-User user1 = User(imageUrl: '', name: 'Elchin', rank: 1, score: 100);
-User user2 = User(imageUrl: '', name: 'Tamerlan', rank: 2, score: 90);
-User user3 = User(imageUrl: '', name: 'Husein', rank: 3, score: 80);
-User user4 = User(imageUrl: '', name: 'Eldar', rank: 4, score: 70);
-User user5 = User(imageUrl: '', name: 'Elmar', rank: 5, score: 60);
-User user6 = User(imageUrl: '', name: 'Elnur', rank: 6, score: 50);
+User user1 = User(imageUrl: 'assets/images/Elchin.jpeg', name: 'Elchin', rank: 1, score: 100);
+User user2 = User(imageUrl: 'assets/images/Tamerlan.jpeg', name: 'Tamerlan', rank: 2, score: 90);
+User user3 = User(imageUrl: 'assets/images/Husein.jpeg', name: 'Husein', rank: 3, score: 80);
+User user4 = User(imageUrl: 'assets/images/Eldar.jpeg', name: 'Eldar', rank: 4, score: 70);
+User user5 = User(imageUrl: 'assets/images/Elmar.jpeg', name: 'Elmar', rank: 5, score: 60);
+User user6 = User(imageUrl: 'assets/images/Elnur.jpeg', name: 'Elnur', rank: 6, score: 50);
 
 List<User> users = [user1, user2, user3, user4, user5, user6];
 
@@ -66,7 +66,7 @@ class RankingContainer extends StatelessWidget {
             
               CircleAvatar(
                 radius: 20,
-                backgroundImage: NetworkImage(profileImageUrl),
+                backgroundImage: AssetImage(profileImageUrl),
                 backgroundColor: Colors.grey[300], 
               ),
               const SizedBox(width: 10),
