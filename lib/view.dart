@@ -18,7 +18,7 @@ class TrashReportPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Trash Report', style: TextStyle(fontSize: 18)), // Smaller font size
+        title: const Text('Trash Report', style: TextStyle(fontSize: 16)), // Smaller font size
         elevation: 2,
       ),
       body: Padding(
@@ -29,11 +29,11 @@ class TrashReportPage extends StatelessWidget {
             Stack(
               children: [
                 ClipRRect(
-                  borderRadius: BorderRadius.circular(12.0), // Slightly reduced radius
+                  borderRadius: BorderRadius.circular(10.0), // Reduced radius
                   child: Image.asset(
                     path,
                     width: double.infinity,
-                    height: 180, // Reduced height
+                    height: 160, // Reduced height
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -51,15 +51,15 @@ class TrashReportPage extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 12), // Reduced spacing
+            const SizedBox(height: 10), // Reduced spacing
 
             // Update this report text
             const Text(
               'Update this report',
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black), // Smaller font size
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black), // Smaller font size
             ),
-            const SizedBox(height: 12), // Reduced spacing
+            const SizedBox(height: 10), // Reduced spacing
 
             // CLEANED Button
             ElevatedButton(
@@ -69,16 +69,16 @@ class TrashReportPage extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xFF8ACE00), // Using your color
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12.0), // Reduced radius
+                  borderRadius: BorderRadius.circular(10.0), // Reduced radius
                 ),
-                padding: const EdgeInsets.symmetric(vertical: 8), // Reduced vertical padding
+                padding: const EdgeInsets.symmetric(vertical: 6), // Reduced vertical padding
               ),
               child: const Text(
                 'CLEANED',
-                style: TextStyle(fontSize: 16, color: Colors.black), // Smaller font size
+                style: TextStyle(fontSize: 14, color: Colors.black), // Smaller font size
               ),
             ),
-            const SizedBox(height: 12), // Reduced spacing
+            const SizedBox(height: 10), // Reduced spacing
 
             // STILL THERE Button
             ElevatedButton(
@@ -88,23 +88,23 @@ class TrashReportPage extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.red,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12.0), // Reduced radius
+                  borderRadius: BorderRadius.circular(10.0), // Reduced radius
                 ),
-                padding: const EdgeInsets.symmetric(vertical: 8), // Reduced vertical padding
+                padding: const EdgeInsets.symmetric(vertical: 6), // Reduced vertical padding
               ),
               child: const Text(
                 'STILL THERE',
-                style: TextStyle(fontSize: 16, color: Colors.black), // Smaller font size
+                style: TextStyle(fontSize: 14, color: Colors.black), // Smaller font size
               ),
             ),
-            const SizedBox(height: 24), // Reduced spacing
+            const SizedBox(height: 20), // Reduced spacing
 
             // Information section title
             const Text(
               'Information',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black), // Smaller font size
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black), // Smaller font size
             ),
-            const SizedBox(height: 12), // Reduced spacing
+            const SizedBox(height: 10), // Reduced spacing
 
             // Information sections
             Column(
@@ -112,7 +112,7 @@ class TrashReportPage extends StatelessWidget {
                 return Container(
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.grey),
-                    borderRadius: BorderRadius.circular(10.0), // Reduced radius
+                    borderRadius: BorderRadius.circular(8.0), // Reduced radius
                   ),
                   margin: const EdgeInsets.symmetric(vertical: 4.0), // Reduced vertical margin
                   padding: const EdgeInsets.all(8.0), // Slightly reduced padding
@@ -120,13 +120,13 @@ class TrashReportPage extends StatelessWidget {
                     children: [
                       Icon(
                         section.icon,
-                        size: 40, // Smaller icon size
+                        size: 36, // Smaller icon size
                       ),
-                      const SizedBox(width: 8), // Reduced space between icon and text
+                      const SizedBox(width: 6), // Reduced space between icon and text
                       Expanded( // To take up available space
                         child: Text(
                           section.text,
-                          style: const TextStyle(fontSize: 16, color: Colors.black), // Smaller font size
+                          style: const TextStyle(fontSize: 14, color: Colors.black), // Smaller font size
                         ),
                       ),
                     ],
@@ -134,17 +134,20 @@ class TrashReportPage extends StatelessWidget {
                 );
               }).toList(),
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 12), // Reduced spacing
+
             const Text(
               'Cleaning Events',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black), // Smaller font size
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black), // Smaller font size
             ),
-            const SizedBox(height: 12), // Reduced spacing
+            const SizedBox(height: 10), // Reduced spacing
             const Text(
               'No cleaning events yet',
-              style: TextStyle(fontSize: 16, color: Colors.black), // Smaller font size
+              style: TextStyle(fontSize: 14, color: Colors.black), // Smaller font size
             ),
-            const SizedBox(height: 12), // Reduced spacing
+            const SizedBox(height: 10), // Reduced spacing
+
+            // ADD EVENT Button
             ElevatedButton(
               onPressed: () {
                 // Handle ADD EVENT action
@@ -152,26 +155,29 @@ class TrashReportPage extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xFF8ACE00), // Using your color
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12.0), // Reduced radius
+                  borderRadius: BorderRadius.circular(10.0), // Reduced radius
                 ),
-                padding: const EdgeInsets.symmetric(vertical: 8), // Reduced vertical padding
+                padding: const EdgeInsets.symmetric(vertical: 6), // Reduced vertical padding
               ),
               child: const Text(
                 'ADD EVENT',
-                style: TextStyle(fontSize: 16, color: Colors.black), // Smaller font size
+                style: TextStyle(fontSize: 14, color: Colors.black), // Smaller font size
               ),
             ),
-            const SizedBox(height: 24), // Reduced spacing
+            const SizedBox(height: 20), // Reduced spacing
+
             const Text(
               "Share this report",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black), // Smaller font size
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black), // Smaller font size
             ),
-            const SizedBox(height: 12), // Reduced spacing
+            const SizedBox(height: 10), // Reduced spacing
             const Text(
               "Send to local authorities or environmental NGOs",
-              style: TextStyle(fontSize: 16, color: Colors.black), // Smaller font size
+              style: TextStyle(fontSize: 14, color: Colors.black), // Smaller font size
             ),
-            const SizedBox(height: 12), // Reduced spacing
+            const SizedBox(height: 10), // Reduced spacing
+
+            // SEND NOTIFICATION Button
             ElevatedButton(
               onPressed: () {
                 // Handle SEND NOTIFICATION action
@@ -179,26 +185,29 @@ class TrashReportPage extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xFF8ACE00), // Using your color
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12.0), // Reduced radius
+                  borderRadius: BorderRadius.circular(10.0), // Reduced radius
                 ),
-                padding: const EdgeInsets.symmetric(vertical: 8), // Reduced vertical padding
+                padding: const EdgeInsets.symmetric(vertical: 6), // Reduced vertical padding
               ),
               child: const Text(
                 'SEND NOTIFICATION',
-                style: TextStyle(fontSize: 16, color: Colors.black), // Smaller font size
+                style: TextStyle(fontSize: 14, color: Colors.black), // Smaller font size
               ),
             ),
-            const SizedBox(height: 24), // Reduced spacing
+            const SizedBox(height: 20), // Reduced spacing
+
             const Text(
               "Report Spam",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black), // Smaller font size
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black), // Smaller font size
             ),
-            const SizedBox(height: 12), // Reduced spacing
+            const SizedBox(height: 10), // Reduced spacing
             const Text(
               "Report this report as spam",
-              style: TextStyle(fontSize: 16, color: Colors.black), // Smaller font size
+              style: TextStyle(fontSize: 14, color: Colors.black), // Smaller font size
             ),
-            const SizedBox(height: 12), // Reduced spacing
+            const SizedBox(height: 10), // Reduced spacing
+
+            // REPORT SPAM Button
             ElevatedButton(
               onPressed: () {
                 // Handle REPORT SPAM action
@@ -206,16 +215,16 @@ class TrashReportPage extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.red,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12.0), // Reduced radius
+                  borderRadius: BorderRadius.circular(10.0), // Reduced radius
                 ),
-                padding: const EdgeInsets.symmetric(vertical: 8), // Reduced vertical padding
+                padding: const EdgeInsets.symmetric(vertical: 6), // Reduced vertical padding
               ),
               child: const Text(
                 'REPORT SPAM',
-                style: TextStyle(fontSize: 16, color: Colors.black), // Smaller font size
+                style: TextStyle(fontSize: 14, color: Colors.black), // Smaller font size
               ),
             ),
-            const SizedBox(height: 24), // Reduced spacing
+            const SizedBox(height: 20), // Reduced spacing
           ],
         ),
       ),

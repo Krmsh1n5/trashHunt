@@ -28,9 +28,57 @@ class _StandingsTableState extends State<StandingsTable> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-        child: ListView(
-      children: rankingContainers,
-    ));
+    Size size = MediaQuery.of(context).size;
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8.0),
+              border: Border.all(color: Colors.grey),
+            ),
+            padding: const EdgeInsets.all(12.0),
+            child: Row(
+              children: [
+                CircleAvatar(
+                  backgroundImage: NetworkImage(user3.imageUrl),
+                  radius: 30,
+                ),
+                const SizedBox(width: 16),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Rank: ${user3.rank}',
+                      style: const TextStyle(
+                          fontSize: 16, fontWeight: FontWeight.bold),
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      user3.name,
+                      style: const TextStyle(fontSize: 18),
+                    ),
+                  ],
+                ),
+                const Spacer(),
+                Text(
+                  'Score: ${user3.score}',
+                  style: const TextStyle(
+                      fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
+          ),
+        ),
+        Center(
+            child: Container(
+          height: size.height * 0.7,
+          child: ListView(
+            children: rankingContainers,
+          ),
+        ))
+      ],
+    );
   }
 }
