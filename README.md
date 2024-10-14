@@ -1,4 +1,4 @@
-# junction_project
+# TrashHunt
 
 A new Flutter project.
 
