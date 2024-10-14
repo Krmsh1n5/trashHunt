@@ -2,7 +2,7 @@
 A mobile app to help reduce garbage in cities by leveraging AI and community engagement
 
 # Overview
-CityCleanerApp is a community-driven mobile application aimed at decreasing the amount of garbage in urban areas. Users can take photos of trash they encounter, and AI analyzes these images, helping volunteer organizations and individuals clean up high-trash areas. Users earn bonuses by participating in cleanups, which they can exchange for products provided by sponsors.
+TrashHunt is a community-driven mobile application aimed at decreasing the amount of garbage in urban areas. Users can take photos of trash they encounter, and AI analyzes these images, helping volunteer organizations and individuals clean up high-trash areas. Users earn bonuses by participating in cleanups, which they can exchange for products provided by sponsors.
 
 ![TrashHunt interface, 1](assets/images/TrashHunt.jpg)
 
@@ -22,6 +22,8 @@ CityCleanerApp is a community-driven mobile application aimed at decreasing the 
 * Volunteer Collaboration: Organizations and individuals can view trash reports and organize clean-up efforts.
 * Earn Bonuses: Users earn points for reporting and participating in clean-up efforts. Points can be redeemed for products from sponsors.
 * Community Impact: This app fosters collaboration between volunteers, local authorities, and sponsors to keep cities clean.
+
+![TrashHunt interface, 1](assets/images/TrashHunt3.jpg)
 
 # Technology Stack
 * Flutter: For building cross-platform mobile apps.
